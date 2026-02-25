@@ -32,13 +32,8 @@ const oshi = (await getCollection("oshi"))
     <Hero
       avatarSrc={avatar}
       name="ぴろきんちょす"
-      caption="「ちょす」って呼んでください！"
+      caption="「ちょす」って呼んでください"
     />
-
-    <section class="home__section">
-      <h2 class="home__title">ワイの推したち</h2>
-      <OshiGrid items={oshi} />
-    </section>
 
     <section class="home__section">
       <h2 class="home__title">SNS</h2>
@@ -49,5 +44,11 @@ const oshi = (await getCollection("oshi"))
       <h2 class="home__title">その他関連</h2>
       <SnsLinks links={others} />
     </section>
+
+    <section class="home__section">
+      <h2 class="home__title">ワイの推したち</h2>
+      <OshiGrid items={oshi} />
+    </section>
+
   </main>
 </Layout>

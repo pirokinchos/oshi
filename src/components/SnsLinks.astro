@@ -1,0 +1,25 @@
+---
+type Link = {
+  label: string
+  url: string
+  note?: string
+}
+
+type Props = {
+  links: Link[]
+}
+
+const { links } = Astro.props
+---
+
+<div class="snsLinks">
+  {links.map(l => (
+    <a class="snsLinks__item" href={l.url} target="_blank" rel="noreferrer">
+      <div class="snsLinks__text">
+        <div class="snsLinks__label">{l.label}</div>
+        {l.note && <div class="snsLinks__note">{l.note}</div>}
+      </div>
+      <div class="snsLinks__more" aria-hidden="true">⋯</div>
+    </a>
+  ))}
+</div>

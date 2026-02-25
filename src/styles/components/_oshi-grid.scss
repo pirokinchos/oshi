@@ -1,0 +1,17 @@
+.oshiGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@media (max-width: 800px) {
+  .oshiGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .oshiGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

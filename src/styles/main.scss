@@ -1,0 +1,12 @@
+@use "./globals/reset";
+@use "./globals/tokens";
+@use "./globals/base";
+@use "./globals/utils";
+
+@use "./components/hero";
+@use "./components/oshi-grid";
+@use "./components/oshi-card";
+@use "./components/sns-links";
+
+@use "./pages/home";
+@use "./pages/oshi-detail";

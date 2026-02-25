@@ -1,0 +1,32 @@
+src/
+  content/
+    config.ts
+    oshi/
+      aoi.md
+      yuna.md
+  components/
+    Hero.astro
+    OshiGrid.astro
+    OshiCard.astro
+  layouts/
+    Layout.astro
+  pages/
+    index.astro
+    oshi/
+      [slug].astro
+  styles/
+    main.scss
+    globals/
+      _reset.scss
+      _tokens.scss
+      _base.scss
+      _utils.scss
+    components/
+      _hero.scss
+      _oshi-grid.scss
+      _oshi-card.scss
+    pages/
+      _home.scss
+      _oshi-detail.scss
+public/
+  avatar.png  ← 任意で置く（なければimgを消してOK）

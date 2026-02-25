@@ -1,0 +1,28 @@
+.hero {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  box-shadow: var(--shadow);
+}
+
+.hero__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.hero__name {
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.hero__caption {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}

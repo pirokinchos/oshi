@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets"
+
+type Props = {
+  avatarSrc?: ImageMetadata
+  name: string
+  caption: string
+}
+
+const { avatarSrc, name, caption } = Astro.props
+---
+
+<header class="hero">
+  {avatarSrc && (
+    <Image
+      class="hero__avatar"
+      src={avatarSrc}
+      alt=""
+      width={200}
+      height={200}
+      format="webp"
+      quality={100}
+    />
+  )}
+  <div class="hero__text">
+    <h1 class="hero__name">{name}</h1>
+    <p class="hero__caption">{caption}</p>
+  </div>
+</header>

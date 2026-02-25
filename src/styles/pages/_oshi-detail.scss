@@ -1,0 +1,72 @@
+.oshiDetail__back {
+  display: inline-block;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.oshiDetail__head {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.oshiDetail__name {
+  font-size: 28px;
+  letter-spacing: 0.02em;
+}
+
+.oshiDetail__caption {
+  color: var(--muted);
+}
+
+.oshiDetail__cover {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin: 10px 0 12px;
+}
+
+.oshiDetail__tags,
+.oshiDetail__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.oshiDetail__tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
+.oshiDetail__pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.oshiDetail__content {
+  margin-top: 16px;
+  line-height: 1.9;
+}
+
+.oshiDetail__content :global(h2) {
+  margin: 18px 0 10px;
+  font-size: 18px;
+}
+
+.oshiDetail__content :global(p),
+.oshiDetail__content :global(ul) {
+  margin: 10px 0;
+}
+
+.oshiDetail__content :global(ul) {
+  padding-left: 18px;
+}

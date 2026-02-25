@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Hero from "../components/Hero.astro"
+import OshiGrid from "../components/OshiGrid.astro"
+import SnsLinks from "../components/SnsLinks.astro"
+import { getCollection } from "astro:content"
+import avatar from "../assets/images/main/avatar.png"
+
+const sns = [
+  { label: "X (Twitter)", url: "https://x.com/pirokinchos_fz" },
+  { label: "Instagram", url: "https://www.instagram.com/pirokinchos_fz/?hl=ja", note: "(Xのサブアカ)" },
+  { label: "TikTok", url: "https://www.tiktok.com/@pirokinchos_fz" }
+]
+
+const others = [
+  { label: "すべきみコール・MIX集", url: "https://tiny-walleye-925.notion.site/MIX-30c0789e501d80508cebfdce0252c7fd" },
+]
+
+const oshi = (await getCollection("oshi"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((item) => ({
+    ...item,
+    data: {
+      ...item.data,
+      cover: item.data.cover?.src
+    }
+  }))
+---
+
+<Layout title="ぴろきんちょす">
+  <main class="wrap home">
+    <Hero
+      avatarSrc={avatar}
+      name="ぴろきんちょす"
+      caption="「ちょす」って呼んでください！"
+    />
+
+    <section class="home__section">
+      <h2 class="home__title">ワイの推したち</h2>
+      <OshiGrid items={oshi} />
+    </section>
+
+    <section class="home__section">
+      <h2 class="home__title">SNS</h2>
+      <SnsLinks links={sns} />
+    </section>
+
+    <section class="home__section">
+      <h2 class="home__title">その他関連</h2>
+      <SnsLinks links={others} />
+    </section>
+  </main>
+</Layout>

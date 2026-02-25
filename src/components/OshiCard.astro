@@ -1,0 +1,29 @@
+---
+type Props = {
+  href: string
+  title: string
+  caption?: string
+  cover?: string
+  color?: string
+  tags?: string[]
+}
+
+const { href, title, caption, cover, color, tags } = Astro.props
+---
+
+<!-- <a class="oshiCard" href={href} style={color ? `--accent:${color}` : undefined}> -->
+<div class="oshiCard" style={color ? `--accent:${color}` : undefined}>
+  <div class="oshiCard__top">
+    <div class="oshiCard__title">{title}</div>
+    {caption && <div class="oshiCard__caption">{caption}</div>}
+  </div>
+
+  {cover && <img class="oshiCard__cover" src={cover} alt="" loading="lazy" />}
+
+  {tags && tags.length > 0 && (
+    <div class="oshiCard__tags">
+      {tags.slice(0, 3).map(t => <span class="oshiCard__tag">{t}</span>)}
+    </div>
+  )}
+<!-- </a> -->
+</div>

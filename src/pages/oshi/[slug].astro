@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getCollection, render } from "astro:content"
+import { Image } from "astro:assets"
+
+export async function getStaticPaths() {
+  const items = await getCollection("oshi")
+  return items.map(item => ({
+    params: { slug: item.slug },
+    props: { item }
+  }))
+}
+
+const { item } = Astro.props
+const { Content } = await render(item)
+---
+
+<Layout title={item.data.name}>
+  <main class="wrap oshiDetail">
+    <a class="oshiDetail__back" href="/">← TOPへ</a>
+
+    <header class="oshiDetail__head">
+      <h1 class="oshiDetail__name">{item.data.name}</h1>
+      {item.data.caption && <p class="oshiDetail__caption">{item.data.caption}</p>}
+    </header>
+
+    {item.data.cover && (
+      <Image
+        class="oshiDetail__cover"
+        src={item.data.cover}
+        alt={item.data.name}
+        width={1280}
+        height={720}
+        widths={[640, 960, 1280]}
+        sizes="(max-width: 900px) 100vw, 900px"
+        format="webp"
+        quality={85}
+        loading="lazy"
+      />
+    )}
+
+    {item.data.tags?.length > 0 && (
+      <div class="oshiDetail__tags">
+        {item.data.tags.map(t => <span class="oshiDetail__tag">{t}</span>)}
+      </div>
+    )}
+
+    {item.data.links?.length > 0 && (
+      <div class="oshiDetail__links">
+        {item.data.links.map(l => (
+          <a class="oshiDetail__pill" href={l.url} target="_blank" rel="noreferrer">
+            {l.label}
+          </a>
+        ))}
+      </div>
+    )}
+
+    <article class="oshiDetail__content">
+      <Content />
+    </article>
+  </main>
+</Layout>

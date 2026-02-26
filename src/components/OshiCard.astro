@@ -1,9 +1,12 @@
 ---
+import { Image } from "astro:assets"
+import type { ImageMetadata } from "astro"
+
 type Props = {
-  href: string
+  href?: string
   title: string
   caption?: string
-  cover?: string
+  cover?: ImageMetadata
   color?: string
   tags?: string[]
 }
@@ -11,19 +14,28 @@ type Props = {
 const { href, title, caption, cover, color, tags } = Astro.props
 ---
 
-<!-- <a class="oshiCard" href={href} style={color ? `--accent:${color}` : undefined}> -->
 <div class="oshiCard" style={color ? `--accent:${color}` : undefined}>
   <div class="oshiCard__top">
     <div class="oshiCard__title">{title}</div>
     {caption && <div class="oshiCard__caption">{caption}</div>}
   </div>
 
-  {cover && <img class="oshiCard__cover" src={cover} alt="" loading="lazy" />}
+  {cover && (
+    <Image
+      class="oshiCard__cover"
+      src={cover}
+      alt={title}
+      widths={[400, 400]}
+      sizes="(max-width: 768px) 100vw, 400px"
+      format="webp"
+      quality={90}
+      loading="lazy"
+    />
+  )}
 
   {tags && tags.length > 0 && (
     <div class="oshiCard__tags">
       {tags.slice(0, 3).map(t => <span class="oshiCard__tag">{t}</span>)}
     </div>
   )}
-<!-- </a> -->
 </div>

@@ -1,19 +1,9 @@
 ---
 import OshiCard from "./OshiCard.astro"
-
-type Item = {
-  slug: string
-  data: {
-    name: string
-    caption?: string
-    cover?: string
-    color?: string
-    tags?: string[]
-  }
-}
+import type { CollectionEntry } from "astro:content"
 
 type Props = {
-  items: Item[]
+  items: CollectionEntry<"oshi">[]
 }
 
 const { items } = Astro.props
@@ -22,7 +12,6 @@ const { items } = Astro.props
 <div class="oshiGrid">
   {items.map(item => (
     <OshiCard
-      href={`/oshi/${item.slug}`}
       title={item.data.name}
       caption={item.data.caption}
       cover={item.data.cover}

@@ -18,13 +18,6 @@ const others = [
 
 const oshi = (await getCollection("oshi"))
   .sort((a, b) => a.data.order - b.data.order)
-  .map((item) => ({
-    ...item,
-    data: {
-      ...item.data,
-      cover: item.data.cover?.src
-    }
-  }))
 ---
 
 <Layout title="ぴろきんちょす">

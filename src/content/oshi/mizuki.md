@@ -2,7 +2,7 @@
 order: 1
 name: 尾上美月
 caption: すべての瞬間は君だった。
-cover: "../../assets/images/oshi/mizuki/mizuki.jpeg"
+cover: "../../assets/images/oshi/mizuki/mizuki.JPG"
 color: "#ff7f50"
 tags: ["コーラルオレンジ"]
 links:
